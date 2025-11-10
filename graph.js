@@ -14,7 +14,8 @@ const DAMPING = 0.85;
 const REPULSION_BASE = 80;
 const NODE_RADIUS = 60;
 const SMALL_NODE_RADIUS = 25; // Radius for nodes without portraits
-const MAX_VELOCITY = 10;
+const MAX_VELOCITY = 20;
+const DISRUPTION_FORCE = 100;
 
 // Simulated annealing parameters
 const INITIAL_TEMPERATURE = 100;
@@ -30,7 +31,7 @@ const MAX_DISPLAYED_NODE_DISTANCE = 300; // Maximum distance between nodes for s
 
 
 class Node {
-    constructor(label, x, y, portrait) {
+    constructor(label, x, y, portrait, size = 1.0) {
         this.label = label;
         this.x = x;
         this.y = y;
@@ -40,6 +41,7 @@ class Node {
         this.ay = 0;
         this.hue = Math.random() * 360;
         this.portrait = portrait;
+        this.size = size;
         this.image = null;
 
         // Load portrait image if available
@@ -100,7 +102,7 @@ class Node {
         if (this.image && this.image.complete) {
             // Calculate dimensions to maintain aspect ratio
             const aspectRatio = this.image.width / this.image.height;
-            const drawHeight = PORTRAIT_HEIGHT;
+            const drawHeight = PORTRAIT_HEIGHT * this.size;
             const drawWidth = drawHeight * aspectRatio;
 
             // Draw the image centered on the node position
@@ -112,7 +114,7 @@ class Node {
                 drawHeight
             );
 
-            // Draw name label below the portrait
+            // Draw name label below the portrait (size does NOT affect label)
             ctx.fillStyle = 'white';
             ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
             ctx.lineWidth = 3;
@@ -124,13 +126,14 @@ class Node {
             ctx.fillText(this.label, this.x, labelY);
         } else {
             // Draw node with gradient (fallback for nodes without portraits)
-            const gradient = ctx.createRadialGradient(this.x - 3, this.y - 3, 2, this.x, this.y, SMALL_NODE_RADIUS);
+            const scaledRadius = SMALL_NODE_RADIUS * this.size;
+            const gradient = ctx.createRadialGradient(this.x - 3, this.y - 3, 2, this.x, this.y, scaledRadius);
             gradient.addColorStop(0, `hsla(${this.hue}, 80%, 70%, 1)`);
             gradient.addColorStop(1, `hsla(${this.hue}, 70%, 50%, 1)`);
 
             ctx.fillStyle = gradient;
             ctx.beginPath();
-            ctx.arc(this.x, this.y, SMALL_NODE_RADIUS, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, scaledRadius, 0, Math.PI * 2);
             ctx.fill();
 
             // Draw border
@@ -138,7 +141,7 @@ class Node {
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            // Draw label
+            // Draw label (size does NOT affect label)
             ctx.fillStyle = 'white';
             ctx.font = 'bold 14px sans-serif';
             ctx.textAlign = 'center';
@@ -175,7 +178,7 @@ function initializeNodes() {
             const r = Math.random() * radius;
             const x = centerX + Math.cos(angle) * r;
             const y = centerY + Math.sin(angle) * r;
-            nodes.push(new Node(nodeData.label, x, y, nodeData.portrait));
+            nodes.push(new Node(nodeData.label, x, y, nodeData.portrait, nodeData.size));
         }
     });
 }
@@ -319,16 +322,17 @@ function animate() {
 }
 
 function disruptGraph() {
-    // Apply large random forces to all nodes
-    const disruptionForce = 50;
+    // Apply large random forces to all nodes (one-time disruption)
     nodes.forEach(node => {
         node.applyForce(
-            (Math.random() - 0.5) * disruptionForce,
-            (Math.random() - 0.5) * disruptionForce
+            (Math.random() - 0.5) * DISRUPTION_FORCE,
+            (Math.random() - 0.5) * DISRUPTION_FORCE
         );
+        // Also give them random velocity directly for more immediate chaos
+        node.vx = (Math.random() - 0.5) * MAX_VELOCITY;
+        node.vy = (Math.random() - 0.5) * MAX_VELOCITY;
     });
-    // Temporarily increase temperature
-    temperature = Math.min(temperature + 30, INITIAL_TEMPERATURE);
+    // Don't change temperature - let it continue cooling naturally
 }
 
 function resetAnimation() {
