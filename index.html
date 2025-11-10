@@ -91,6 +91,11 @@
         <p>Positive correlations attract (warm colors), negative correlations repel (cool colors)</p>
     </div>
 
-    <script src="graph.js"></script>
+    <script>
+        // Cache-busting: append timestamp to script URL
+        const script = document.createElement('script');
+        script.src = 'graph.js?t=' + Date.now();
+        document.body.appendChild(script);
+    </script>
 </body>
 </html>

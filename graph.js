@@ -24,7 +24,8 @@ const JITTER_FREQUENCY = 0.05; // Initial probability of jitter per frame
 let temperature = INITIAL_TEMPERATURE;
 
 // visualization parameters
-const PORTRAIT_HEIGHT = 90; // Height for portrait images
+const USE_PORTRAIT_IMAGES = false; // Set to true to use portrait images, false to use circles
+const PORTRAIT_HEIGHT = 80; // Height for portrait images
 const MIN_CORREL_TO_DISPLAY = 0.2; // Minimum absolute correlation to draw connection
 const MIN_NUM_NODE_DIAMETERS_DISTANCE = 1.25; // Minimum number of node diameters apart that nodes can display
 const MAX_DISPLAYED_NODE_DISTANCE = 300; // Maximum distance between nodes for strongest correlations
@@ -44,8 +45,8 @@ class Node {
         this.size = size;
         this.image = null;
 
-        // Load portrait image if available
-        if (this.portrait) {
+        // Load portrait image if available and USE_PORTRAIT_IMAGES is enabled
+        if (USE_PORTRAIT_IMAGES && this.portrait) {
             this.image = new Image();
             this.image.src = this.portrait;
         }
@@ -388,7 +389,8 @@ canvas.addEventListener('mouseleave', () => {
 });
 
 // Load data and start animation
-fetch('./correl_data.json')
+// Cache-busting: append timestamp to JSON URL
+fetch('./correl_data.json?t=' + Date.now())
     .then(response => {
         console.log('Fetch response:', response);
         return response.json();

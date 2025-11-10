@@ -17,7 +17,7 @@
     {"label": "wheeler", "display": 1, "portrait": "images/pixel portraits/wheeler.png"},
     {"label": "q1", "display": 0},
     {"label": "q2", "display": 0},
-    {"label": "q3", "display": 1, "portrait": "images/pixel portraits/q3.png", "size": 0.4}
+    {"label": "q3", "display": 1, "portrait": "images/pixel portraits/q3.png", "size": 1.0}
   ],
   "correlations": {
     "burnley": {
