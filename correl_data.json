@@ -1,0 +1,197 @@
+{
+  "nodes": [
+    {"label": "burnley", "display": 1, "portrait": "images/pixel portraits/burnley.png"},
+    {"label": "ballantyne", "display": 1, "portrait": "images/pixel portraits/ballantyne.png"},
+    {"label": "wilson", "display": 1, "portrait": "images/pixel portraits/wilson.png"},
+    {"label": "spicer", "display": 1, "portrait": "images/pixel portraits/spicer.png"},
+    {"label": "mbah", "display": 1, "portrait": "images/pixel portraits/mbah.png"},
+    {"label": "strezo", "display": 1, "portrait": "images/pixel portraits/strezo.png"},
+    {"label": "istvan", "display": 1, "portrait": "images/pixel portraits/istvan.png"},
+    {"label": "perenick", "display": 1, "portrait": "images/pixel portraits/perenick.png"},
+    {"label": "walles", "display": 1, "portrait": "images/pixel portraits/walles.png"},
+    {"label": "thomas", "display": 1, "portrait": "images/pixel portraits/thomas.png"},
+    {"label": "simione", "display": 1, "portrait": "images/pixel portraits/simione.png"},
+    {"label": "link", "display": 1, "portrait": "images/pixel portraits/link.png"},
+    {"label": "klekota", "display": 1, "portrait": "images/pixel portraits/klekota.png"},
+    {"label": "iaccarino", "display": 1, "portrait": "images/pixel portraits/iaccarino.png"},
+    {"label": "wheeler", "display": 1, "portrait": "images/pixel portraits/wheeler.png"},
+    {"label": "q1", "display": 0},
+    {"label": "q2", "display": 0},
+    {"label": "q3", "display": 1, "portrait": "images/pixel portraits/q3.png"}
+  ],
+  "correlations": {
+    "burnley": {
+      "ballantyne": -0.29,
+      "wilson": -0.68,
+      "spicer": 0.07,
+      "mbah": 0.38,
+      "strezo": -0.22,
+      "istvan": 0.48,
+      "perenick": -0.22,
+      "walles": 0.0,
+      "thomas": 0.44,
+      "simione": -0.48,
+      "link": 0.57,
+      "klekota": -0.29,
+      "iaccarino": 0.02,
+      "wheeler": 0.09,
+      "q1": 0.69,
+      "q2": 0.05,
+      "q3": 0.83
+    },
+    "ballantyne": {
+      "wilson": -0.65,
+      "spicer": 0.03,
+      "mbah": 0.04,
+      "strezo": 0.13,
+      "istvan": 0.08,
+      "perenick": 0.24,
+      "walles": -0.22,
+      "thomas": -0.13,
+      "simione": -0.24,
+      "link": -0.47,
+      "klekota": 0.56,
+      "iaccarino": 0.09,
+      "wheeler": -0.62
+    },
+    "wilson": {
+      "spicer": -0.07,
+      "mbah": -0.35,
+      "strezo": 0.07,
+      "istvan": -0.46,
+      "perenick": 0.08,
+      "walles": 0.1,
+      "thomas": -0.22,
+      "simione": 0.56,
+      "link": -0.21,
+      "klekota": -0.24,
+      "iaccarino": -0.07,
+      "wheeler": 0.25,
+      "q1": -0.65,
+      "q2": 0.0,
+      "q3": -0.82
+    },
+    "spicer": {
+      "mbah": -0.05,
+      "strezo": 0.41,
+      "istvan": 0.06,
+      "perenick": -0.31,
+      "walles": 0.17,
+      "thomas": 0.08,
+      "simione": 0.21,
+      "link": -0.17,
+      "klekota": -0.22,
+      "iaccarino": -0.27,
+      "wheeler": 0.01
+    },
+    "mbah": {
+      "strezo": 0.22,
+      "istvan": 0.08,
+      "perenick": -0.2,
+      "walles": -0.42,
+      "thomas": 0.26,
+      "simione": -0.42,
+      "link": 0.0,
+      "klekota": 0.26,
+      "iaccarino": 0.16,
+      "wheeler": 0.39,
+      "q1": 0.69,
+      "q2": -0.11,
+      "q3": 0.43
+    },
+    "strezo": {
+      "istvan": 0.21,
+      "perenick": 0.02,
+      "walles": -0.25,
+      "thomas": -0.16,
+      "simione": 0.04,
+      "link": -0.4,
+      "klekota": -0.11,
+      "iaccarino": -0.41,
+      "wheeler": 0.12,
+      "q1": -0.28,
+      "q2": 0.14,
+      "q3": -0.29
+    },
+    "istvan": {
+      "perenick": 0.06,
+      "walles": -0.17,
+      "thomas": 0.25,
+      "simione": -0.47,
+      "link": 0.23,
+      "klekota": -0.39,
+      "iaccarino": -0.17,
+      "wheeler": -0.15,
+      "q1": 0.12,
+      "q2": 0.31,
+      "q3": 0.48
+    },
+    "perenick": {
+      "walles": -0.44,
+      "thomas": -0.51,
+      "simione": -0.04,
+      "link": -0.08,
+      "klekota": 0.11,
+      "iaccarino": 0.0,
+      "wheeler": -0.16,
+      "q1": 0.15,
+      "q2": 0.07,
+      "q3": -0.3
+    },
+    "walles": {
+      "thomas": 0.19,
+      "simione": 0.27,
+      "link": 0.18,
+      "klekota": -0.4,
+      "iaccarino": -0.13,
+      "wheeler": -0.23,
+      "q1": -0.26,
+      "q2": -0.25,
+      "q3": 0.05
+    },
+    "thomas": {
+      "simione": -0.14,
+      "link": 0.47,
+      "klekota": -0.16,
+      "iaccarino": -0.05,
+      "wheeler": 0.06
+    },
+    "simione": {
+      "link": -0.28,
+      "klekota": -0.22,
+      "iaccarino": -0.34,
+      "wheeler": -0.01,
+      "q1": -0.39,
+      "q2": 0.01,
+      "q3": -0.62
+    },
+    "link": {
+      "klekota": -0.53,
+      "iaccarino": -0.29,
+      "wheeler": 0.08,
+      "q1": 0.54,
+      "q2": -0.24,
+      "q3": 0.66
+    },
+    "klekota": {
+      "iaccarino": 0.48,
+      "wheeler": -0.53
+    },
+    "iaccarino": {
+      "wheeler": -0.39
+    },
+    "wheeler": {
+      "q1": 0.56,
+      "q2": -0.03,
+      "q3": 0.06
+    },
+    "q1": {
+      "q2": 0.13,
+      "q3": 0.57
+    },
+    "q2": {
+      "q3": 0.13
+    },
+    "q3": {}
+  }
+}
