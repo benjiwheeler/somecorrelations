@@ -24,7 +24,9 @@ const JITTER_FREQUENCY = 0.05; // Initial probability of jitter per frame
 let temperature = INITIAL_TEMPERATURE;
 
 // visualization parameters
-const USE_PORTRAIT_IMAGES = false; // Set to true to use portrait images, false to use circles
+// Check URL query parameter for use_portrait_images
+const urlParams = new URLSearchParams(window.location.search);
+let USE_PORTRAIT_IMAGES = urlParams.get('use_portrait_images') === 'true';
 const PORTRAIT_HEIGHT = 80; // Height for portrait images
 const MIN_CORREL_TO_DISPLAY = 0.2; // Minimum absolute correlation to draw connection
 const MIN_NUM_NODE_DIAMETERS_DISTANCE = 1.25; // Minimum number of node diameters apart that nodes can display
