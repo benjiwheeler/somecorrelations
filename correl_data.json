@@ -15,7 +15,7 @@
     {"label": "klekota", "display": 1, "portrait": "images/pixel portraits/klekota.png"},
     {"label": "iaccarino", "display": 1, "portrait": "images/pixel portraits/iaccarino.png"},
     {"label": "wheeler", "display": 1, "portrait": "images/pixel portraits/wheeler.png"},
-    {"label": "q1", "display": 0},
+    {"label": "q1", "display": 1},
     {"label": "q2", "display": 0},
     {"label": "q3", "display": 1, "portrait": "images/pixel portraits/q3.png", "size": 1.0}
   ],
